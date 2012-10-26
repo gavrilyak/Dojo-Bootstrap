@@ -96,10 +96,10 @@ define([
                         _this.reset();
                     }
                     _this.transitioning = 0;
-                    on.emit(_this.domNode, completeEvent, {bubbles:false, cancelable:false});
+                    on.emit(_this.domNode, completeEvent, {bubbles:true, cancelable:false});
                 };
 
-            on.emit(this.domNode, startEvent, {bubbles:false, cancelable:false});
+            on.emit(this.domNode, startEvent, {bubbles:true, cancelable:false});
 
             this.transitioning = 1;
 
