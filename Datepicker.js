@@ -369,7 +369,7 @@ define([
                             this.viewDate = new Date(year, month, day,0,0,0,0);
                             this.fill();
                             this.setValue();
-                            on.emit(this.domNode, 'changeDate', { bubbles:false, cancelable:false, date:this.date });
+                            on.emit(this.domNode, 'changeDate', { bubbles:true, cancelable:false, date:this.date });
                             this.hide();
                         }
                         break;
