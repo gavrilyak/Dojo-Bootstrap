@@ -209,7 +209,10 @@ define([
             var formatted = _formatDate(this.date, this.format);
             if (!this.isInput) {
                 if (this.component) {
-                    query('input', this.domNode)[0].value = formatted;
+                    var input = query('input', this.domNode)[0];
+                    if(domAttr.get(input, "type") != 'hidden') {
+                      input.value = formatted;
+                    }
                 }
                 support.setData(this.domNode, 'date', formatted);
             } else {
