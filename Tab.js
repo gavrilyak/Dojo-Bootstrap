@@ -107,7 +107,7 @@ define([
             });
         }
     });
-    on(win.body(), on.selector(toggleSelector, 'click'), function (e) {
+    on(win.body(), toggleSelector + ":" + 'click', function (e) {
         if (e) {
             e.preventDefault();
         }
