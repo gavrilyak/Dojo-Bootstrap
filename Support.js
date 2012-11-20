@@ -65,11 +65,11 @@ function (query, lang, attr, array, json) {
         var elm = query(node)[0];
         if(elm){
             var _this = this;
-            var attrs = elm.attributes;
+            var attrs = array.filter(elm.attributes, function(attr){
+                return attr.name.indexOf("data-") >= 0;
+            });
             array.forEach(attrs, function(attr){
-                if(attr.name.indexOf("data-") >= 0){
-                    _this.setData(node, attr.name.substr(5), _attrValue(attr.value));
-                }
+                _this.setData(node, attr.name.substr(5), _attrValue(attr.value));
             });
         }
     };
