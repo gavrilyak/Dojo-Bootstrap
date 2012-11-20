@@ -37,7 +37,7 @@ define([
         },
         show:function (e) {
             var _this = this;
-            var ul = query(this.domNode).closest('ul:not(.dropdown-menu)');
+            var ul = query(this.domNode).closest('ul'); //:not(.dropdown-menu)');
             var li = query(this.domNode).parent('li')[0];
             if (li && domClass.contains(li, 'active')) {
                 return;
