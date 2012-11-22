@@ -58,7 +58,7 @@ define([
         },
         show:function (e) {
             var _this = this;
-            on.emit(this.domNode, 'show', {bubbles:false, cancelable:false});
+            on.emit(this.domNode, 'show', {bubbles:true, cancelable:false});
             if (this.isShown && e.defaultPrevented) { return; }
             domClass.add(win.body(), 'modal-open');
             this.isShown = true;
@@ -80,16 +80,16 @@ define([
 
                 if (transition) {
                     on.once(_this.domNode, support.trans.end, function () {
-                        on.emit(_this.domNode, 'shown', {bubbles:false, cancelable:false});
+                        on.emit(_this.domNode, 'shown', {bubbles:true, cancelable:false});
                     });
                 } else {
-                    on.emit(_this.domNode, 'shown', {bubbles:false, cancelable:false});
+                    on.emit(_this.domNode, 'shown', {bubbles:true, cancelable:false});
                 }
             });
         },
         hide:function (e) {
             var _this = this;
-            on.emit(this.domNode, 'hide', {bubbles:false, cancelable:false});
+            on.emit(this.domNode, 'hide', {bubbles:true, cancelable:false});
             if (e) { e.preventDefault(); }
             if (!this.isShown && e.defaultPrevented) {
                 return;
@@ -136,7 +136,7 @@ define([
     function _hideModal() {
         var _this = this;
         domStyle.set(_this.domNode, 'display', 'none');
-        on.emit(_this.domNode, 'hidden', {bubbles:false, cancelable:false});
+        on.emit(_this.domNode, 'hidden', {bubbles:true, cancelable:false});
         _backdrop.call(_this);
     }
 
