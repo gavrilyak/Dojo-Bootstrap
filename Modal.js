@@ -206,8 +206,6 @@ define([
                 var data = support.getData(node, 'modal');
                 if (!data) {
                     support.setData(node, 'modal', (data = new Modal(node, options)));
-                } else {
-                    lang.mixin(data.options, options);
                 }
                 if (lang.isString(option)) {
                     data[option].call(data);
